@@ -118,7 +118,7 @@ class SampleInteractorTest {
         }
 
         val expected = listOf(1, 2, 3, 4, -1)
-        val actual = dotsInteractor.task4().toList()
+        val actual = dotsInteractor.task4IllegalArgumentException().toList()
 
         assertEquals(expected, actual)
 
@@ -139,9 +139,8 @@ class SampleInteractorTest {
 
         assertThrows(SecurityException::class.java){
             runBlockingTest {
-                dotsInteractor.task4().toList()
+                dotsInteractor.task4NotIllegalArgumentException().toList()
             }
-
         }
         verify(exactly = 1) { dotsRepository.completed() }
     }
